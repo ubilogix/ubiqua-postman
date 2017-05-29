@@ -1,0 +1,472 @@
+{
+	"id": "5ce052eb-8723-975c-175a-77447c5f8f63",
+	"name": "Ubiqua Services",
+	"description": "The remote access service provides 5 resources: `/capture`, `/sniffers`, `/filters`, `/keys` and `/addresses`.\n\nFor more information go to: [Ubiqua Documentation](https://www.ubilogix.com/ubiqua/documentation/guide/ubiqua-services)\n<br/><br/>\n#### Authentication Remote Access Service\n\nIf the remote access service requires authentication then do the following in every request:\n*  Go to the Authorizarion tab\n*  Select \"Basic Auth\" in the type field\n*  Enter the remote access service credentials\n*  Click on the \"Update Request\" button\n\nIf you want to remove the added authentication in a request do the following:\n* Go to the Authorization tab\n* Select \"No Auth\" in the type field\n* Go to the Headers tab\n* Check the Authorization header and remove it using the \"X\" button",
+	"order": [],
+	"folders": [
+		{
+			"id": "c39ae91e-2467-8a25-48ec-c9ecda4204dc",
+			"name": "Current Capture",
+			"description": "The `/capture` resource represent the current capture in Ubiqua, and it can be used to retrieve the current number of packets and a specific range of packets, to export the capture file to the local file system, or to clear all the packets.",
+			"order": [
+				"3cc6860e-2008-80b5-dc63-2440fae2d6fe",
+				"5479b6e6-61af-417f-edb3-8302ccfe616b",
+				"d8056907-399b-87ec-c668-364dba0591fc",
+				"0a0f24f7-1225-5c38-ca27-4fd4f410ba9f",
+				"1a101558-7ed2-03b7-9816-63f7a409c3f8"
+			],
+			"owner": 0,
+			"collectionId": "f76fcd34-0571-5236-eea0-4636e4e98773"
+		},
+		{
+			"id": "83a435e0-bfcd-fec0-6f2d-e47fb56089f5",
+			"name": "Filters",
+			"description": "The `/filters` resource represents the current filters in Ubiqua, and it can be used to retrieve the list of filters, to enable or disable a filter. ",
+			"order": [
+				"cf87ac3f-2348-a795-48cc-03b0992147d7",
+				"6d74eab2-b71a-482b-bde8-6f5d2c5a5567",
+				"05a8d2d6-6a18-4235-7e4d-dfe4871a789b",
+				"bd4c765b-0bb7-e97b-5378-96ffc83d8707"
+			],
+			"owner": 0
+		},
+		{
+			"id": "0cca1ba2-7904-a8d2-233b-77dc6ba7d080",
+			"name": "Network Addresses",
+			"description": "The `/addresses` resource represents the current addresses in Ubiqua, and it can be used to retrieve the list of addresses, and to insert a new relationship of long address and short address.",
+			"order": [
+				"5adbd5c0-68cd-cc6b-1eb7-1092a2481520"
+			],
+			"owner": 0
+		},
+		{
+			"id": "3375ad01-bdff-f96b-4922-2f1ee9c4e4d8",
+			"name": "Security Keys",
+			"description": "The `/keys` resource represents the current security keys in Ubiqua, and it can be used to retrieve the list of security keys, and to insert a new security key",
+			"order": [
+				"d2dac195-eeeb-e99e-9990-4aa019799e7c"
+			],
+			"owner": 0,
+			"collectionId": "f76fcd34-0571-5236-eea0-4636e4e98773"
+		},
+		{
+			"id": "5d4b6b58-f8e5-b5ce-a0f8-057be4df79e1",
+			"name": "Sniffer Devices",
+			"description": "The `/sniffers` resource represents the sniffer devices currently attached and available in Ubiqua, it can be used to retrieve the list of all devices, the status of a specific device, and to start or stop a sniffer. ",
+			"order": [
+				"4692cdfe-6ea2-cbac-7ac8-d8ffe265e419",
+				"0c46d4cd-1937-4383-39a5-ed4bce099e87",
+				"77a21636-3982-07b9-532b-a1a987b12812",
+				"3a6fecc6-9e37-3497-3067-4bb762287e64"
+			],
+			"owner": 0
+		}
+	],
+	"timestamp": 1486613856609,
+	"owner": 0,
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "05a8d2d6-6a18-4235-7e4d-dfe4871a789b",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/filters",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "enable",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "filter",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487036520326,
+			"name": "Enable Filter",
+			"description": "Enables the filter.\n\n<br/>\n#### Request Parameters\n*action* - A string with of the following value:\n\n* enable\n\n*filter* - A string with the filter name, to get the list of valid names use the command (GET) Filters\n\n<br/>\n**Response Code 200 (OK)**\nEnables the filter as instructed by the execute {action} parameter.\n\n**Response Code 400 (Bad Request)**\nThe filter does not exist, or the action is unknown.\n\n**Response Code 503 (Service Unavailable)**\nThe filter cannot be enabled when a task is running.",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "83a435e0-bfcd-fec0-6f2d-e47fb56089f5"
+		},
+		{
+			"id": "0a0f24f7-1225-5c38-ca27-4fd4f410ba9f",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/capture",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "save",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "filename",
+					"value": "C:\\nameOfYourCapture.cubx",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487966089657,
+			"name": "Save Capture",
+			"description": "Stores the capture log in Ubiqua file format on the specified location.\n\n<br/>\n#### Request Parameters\n\n*action* - A string with the following value:\n\n* save \n\n*filename* - A string with the path and name of the capture:\n\n* E.g. - \"C:\\save.cubx\"",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "c39ae91e-2467-8a25-48ec-c9ecda4204dc"
+		},
+		{
+			"id": "0c46d4cd-1937-4383-39a5-ed4bce099e87",
+			"headers": "",
+			"url": "http://localhost:19501/sniffers/ID",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487386264794,
+			"name": "Sniffer Device by ID",
+			"description": "Returns the information of the sniffer device with the specified ID.\n<br/><br/>\n\n#### Request Parameters\n*ID* - A string of the device ID, to get the list of valid ID's use the command (GET) Sniffers Device \n\n<br/>\n**Response Code 200 (OK)**\n\nGets an XML document with the status of the sniffer device with the specified ID.\n<br/><br/>\n\n**Response code 404 (Not Found)**\n\nThe sniffer device with the specified ID was not found on the list of available sniffer devices.\n<br/><br/>",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "5d4b6b58-f8e5-b5ce-a0f8-057be4df79e1"
+		},
+		{
+			"id": "1a101558-7ed2-03b7-9816-63f7a409c3f8",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/capture",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "export",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "filename",
+					"value": "C:\\exported.txt",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1486675757603,
+			"name": "Export Capture",
+			"description": "Stores the capture log in another file format on the specified file location. Use one of the valid file extensions: `.txt`, `.xls`, `.csv`, `.opml` and `.cubx`.\n\n<br/>\n#### Request Parameters\n*action* - A string with one of the following value:\n\n* export\n\n*filename* - A string with the path and file name to export the capture:\n\n* E.g. - \"C:\\nameOfYourExportCapture.txt\"",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "c39ae91e-2467-8a25-48ec-c9ecda4204dc"
+		},
+		{
+			"id": "3a6fecc6-9e37-3497-3067-4bb762287e64",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/sniffers/COM3",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": [
+				{
+					"key": "action",
+					"value": "stop",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Stop Device",
+			"description": "Stops the sniffer device of the specified ID.\n\n<br/>\n#### Request Parameters\n\n*ID* - A string of the device ID, to get the list of valid ID's use the command (GET) Sniffers Device \n\n*action* - A string with the following value:\n\n* stop\n\n\n**Response Code 200 (OK)**\n\nStarts or stops a sniffer device as instructed by the `action` parameter.\n<br/><br/>\n\n**Response Code 400 (Bad Request)**\n\nThe sniffer can not start: channel out of range or protocol not supported.\n<br/><br/>\n\n**Response Code 404 (Not Found)**\n\nThe sniffer with the specified ID was not found on the list of available sniffer devices.\n<br/><br/>\n\n**Response Code 503 (Service Unavailable)**\n\nThe sniffer with the specified ID is already in the requested state.\n<br/><br/>",
+			"descriptionFormat": "html",
+			"time": 1487011294894,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "5d4b6b58-f8e5-b5ce-a0f8-057be4df79e1"
+		},
+		{
+			"id": "3cc6860e-2008-80b5-dc63-2440fae2d6fe",
+			"headers": "",
+			"url": "http://localhost:19501/capture?offset=10&limit=2",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": null,
+			"dataMode": "params",
+			"name": "Current Capture",
+			"description": "Returns the packets about the current capture.\n\n<br/>\n#### Request Parameters\n\n*offset* - An interger accepting positive numbers and zero `0`. The offset of the packets to retrieve.\n\n*limit* - An interger accepting positive numbers and zero `0`. The number of packets to retrieve",
+			"descriptionFormat": "html",
+			"time": 1486660248897,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "c39ae91e-2467-8a25-48ec-c9ecda4204dc"
+		},
+		{
+			"id": "4692cdfe-6ea2-cbac-7ac8-d8ffe265e419",
+			"headers": "",
+			"url": "http://localhost:19501/sniffers",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": null,
+			"dataMode": "params",
+			"name": "Sniffers Device",
+			"description": "Returns a list of the sniffers devices currently added in Ubiqua.\n<br/><br/>\n**Response Code 200 (OK)**\n\nAn XML document with the list of sniffer devices.",
+			"descriptionFormat": "html",
+			"time": 1486676116074,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "5d4b6b58-f8e5-b5ce-a0f8-057be4df79e1"
+		},
+		{
+			"id": "5479b6e6-61af-417f-edb3-8302ccfe616b",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/capture",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": [
+				{
+					"key": "action",
+					"value": "clear",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Clear Capture",
+			"description": "Removes all the packets from the current capture.\n\n<br/>\n#### Request Parameters\n\n*action* - A string with one of the following value:\n\n* clear",
+			"descriptionFormat": "html",
+			"time": 1486660711741,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "c39ae91e-2467-8a25-48ec-c9ecda4204dc"
+		},
+		{
+			"id": "5adbd5c0-68cd-cc6b-1eb7-1092a2481520",
+			"headers": "",
+			"url": "http://localhost:19501/addresses",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": null,
+			"dataMode": "params",
+			"name": "Addresses",
+			"description": "\nReturns a list of the addresses in Ubiqua.\n<br/><br/>\n**Response Code 200 (OK)**\n\nAn XML document with the list of addresses.",
+			"descriptionFormat": "html",
+			"time": 1487035236504,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "0cca1ba2-7904-a8d2-233b-77dc6ba7d080"
+		},
+		{
+			"id": "6d74eab2-b71a-482b-bde8-6f5d2c5a5567",
+			"headers": "",
+			"url": "http://localhost:19501/filters/ID",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487386254737,
+			"name": "Filters by ID",
+			"description": "Returns the status and conditions of the filter with the specified ID.\n<br/><br/>\n\n#### Request Parameters\n*ID* - An integer, to get the list of valid ID's use the command (GET) Filters.\n\n<br/>\n**Response Code 200 (OK)**\n\nGets an XML document with the status and conditions of the filter with the specified ID.\n\n**Response Code 404 (Not Found)**\n\nThe filter with the specified ID was not found on the list of filters.",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "83a435e0-bfcd-fec0-6f2d-e47fb56089f5"
+		},
+		{
+			"id": "77a21636-3982-07b9-532b-a1a987b12812",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/sniffers/ID",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "start",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "channel",
+					"value": "16",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "protocol",
+					"value": "ZigBee",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487390362090,
+			"name": "Start Device",
+			"description": "Start the sniffer device of the specified ID.\n\n<br/>\n#### Request Parameters\n*ID* - A string of the device ID, to get the list of valid ID's use the command (GET) Sniffers Device \n\n*action* - A string with the following value:\n\n* start\n\n*channel* - A value between 11 and 26 (In case of 2.4 GHz devices) representing the physical channel (optional).\n\n*protocol* - A string with one of the following supported values (optional):\n* `IEEE 802.15.4-2003, IEEE 802.15.4-2006, ZigBee, IP, Synkro RF, Raw Data, PopNet, ZigBee RF4CE, ZigBee IP, JenNet IP, IETF 6LoWPAN`.\n\n\n<br/>\n**Response Code 200 (OK)**\n\nStarts or stops a sniffer device as instructed by the `action` parameter.\n<br/><br/>\n\n**Response Code 400 (Bad Request)**\n\nThe sniffer can not start: channel out of range or protocol not supported.\n<br/><br/>\n\n**Response Code 404 (Not Found)**\n\nThe sniffer with the specified ID was not found on the list of available sniffer devices.\n<br/><br/>\n\n**Response Code 503 (Service Unavailable)**\n\nThe sniffer with the specified ID is already in the requested state.\n<br/><br/>",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "5d4b6b58-f8e5-b5ce-a0f8-057be4df79e1"
+		},
+		{
+			"id": "bd4c765b-0bb7-e97b-5378-96ffc83d8707",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/filters",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "disable",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "filter",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487036518456,
+			"name": "Disable Filter",
+			"description": "Disables the filter.\n\n<br/>\n#### Request Parameters\n*action* - A string with of the following value:\n\n* disable\n\n*filter* - A string with the filter name, to get the list of valid names use the command (GET) Filters\n\n<br/>\n**Response Code 200 (OK)**\nEnables or disables the filter as instructed by the execute {action} parameter.\n\n**Response Code 400 (Bad Request)**\nThe filter does not exist, or the action is unknown.\n\n**Response Code 503 (Service Unavailable)**\nThe filter cannot be enabled or disabled when a task is running.",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "83a435e0-bfcd-fec0-6f2d-e47fb56089f5"
+		},
+		{
+			"id": "cf87ac3f-2348-a795-48cc-03b0992147d7",
+			"headers": "",
+			"url": "http://localhost:19501/filters",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": null,
+			"dataMode": "params",
+			"name": "Filters",
+			"description": "Returns a list of the filters in Ubiqua.\n<br/><br/>\n**Response Code 200 (OK)**\n\nAn XML document with the list of filters.",
+			"descriptionFormat": "html",
+			"time": 1487013986342,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "83a435e0-bfcd-fec0-6f2d-e47fb56089f5"
+		},
+		{
+			"id": "d2dac195-eeeb-e99e-9990-4aa019799e7c",
+			"headers": "",
+			"url": "http://localhost:19501/keys",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"data": null,
+			"dataMode": "params",
+			"name": "Keys",
+			"description": "Returns a list of the security keys in Ubiqua.\n<br/><br/>\n**Response Code 200 (OK)**\n\nAn XML document with the list of secutiry keys.",
+			"descriptionFormat": "html",
+			"time": 1487033355312,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "3375ad01-bdff-f96b-4922-2f1ee9c4e4d8"
+		},
+		{
+			"id": "d8056907-399b-87ec-c668-364dba0591fc",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:19501/capture",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "action",
+					"value": "load",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "filename",
+					"value": "C:\\capture.cubx",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1486675759355,
+			"name": "Load Capture",
+			"description": "Opens a file capture with any supported file format of Ubiqua.\n\n<br/>\n#### Request Parameters\n\n*action* - A string with the following value:\n\n* load \n\n*filename* - A string with the path and name of the capture:\n\n* E.g. - \"C:\\load.cubx\"",
+			"collectionId": "5ce052eb-8723-975c-175a-77447c5f8f63",
+			"responses": [],
+			"folder": "c39ae91e-2467-8a25-48ec-c9ecda4204dc"
+		}
+	]
+}
