@@ -9,7 +9,7 @@ features that [Ubiqua][ubiqua] provides through its [Services API][ubiqua-api].*
 Install Postman, then import this collection using the following URL:
 
 ```
-https://raw.githubusercontent.com/ubilogix/ubiqua-postman/ubiqua.json
+https://raw.githubusercontent.com/ubilogix/ubiqua-postman/master/ubiqua.json
 ```
 
 The request templates in the collection are grouped by resource; all examples
